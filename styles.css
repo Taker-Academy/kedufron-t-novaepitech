@@ -180,7 +180,6 @@ header {
 
     button {
         padding: 1rem 5rem 1rem 5rem;
-        background-color: pink;
         transition: background-color 0.3s ease, color 0.3s ease;
         border: 0;
         border-radius: 15px;
@@ -188,13 +187,26 @@ header {
         font-size: 1.2rem;
     }
 
-    button:hover {
-        background-color: seagreen;
+    .lightyellow {
+        background-color: #fffcaf;
+    }
+
+    .pink {
+        background-color: pink;
+    }
+
+    .lightgreen {
+        background-color: lightgreen;
+    }
+
+    .lightyellow:hover,
+    .pink:hover,
+    .lightblue:hover,
+    .lightgreen:hover {
+        background-color: black;
         color: white;
     }
 }
-
-/* Footer */
 
 /* Footer */
 

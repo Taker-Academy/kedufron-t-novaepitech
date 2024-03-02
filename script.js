@@ -14,11 +14,11 @@ fetch(`${apiUrl}item/`)
 			img.src = `${apiUrl}item/picture/${item.image}`;
 			card.appendChild(img);
 
-			const name = document.createElement('p');
+			const name = document.createElement('h1');
 			name.textContent = item.name;
 			card.appendChild(name);
 
-			const price = document.createElement('p');
+			const price = document.createElement('h2');
 			price.textContent = item.price + ' €';
 			card.appendChild(price);
 
@@ -28,13 +28,16 @@ fetch(`${apiUrl}item/`)
 			else
 				addToCart.textContent = 'En rupture de stock';
 			card.appendChild(addToCart);
+			var colors = ['lightyellow', 'pink', 'lightgreen'];
+			var randomColor = colors[Math.floor(Math.random() * colors.length)];
+			addToCart.classList.add(randomColor);
 		});
 	})
 	.catch(error => console.error('Erreur:', error));
 
 // Footer
 
-var colors = ['#fffcaf', '#3a759f', 'pink', 'lightgreen'];
+var colors = ['#fffcaf', 'pink', 'lightgreen'];
 var randomColor = colors[Math.floor(Math.random() * colors.length)];
 
 document.querySelector('footer').style.backgroundColor = randomColor;

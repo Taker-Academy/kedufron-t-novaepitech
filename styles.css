@@ -3,6 +3,11 @@
     src: url(fonts/Feijoada.ttf);
 }
 
+:root {
+    --primary-blue: #3a759f;
+    --secondary-color: #ec135b;
+}
+
 body {
     /* font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; */
     font-family: Feijoada;
@@ -36,6 +41,13 @@ header {
     align-items: center;
     height: 40px;
     margin: 0;
+
+    a {
+        text-decoration: none;
+        color: #173b55;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
 }
 
 .categories {
@@ -50,7 +62,7 @@ header {
     }
 
     h3:hover {
-        color: #3a759f;
+        color: var(--primary-blue);
         text-shadow: 0 0 1px;
     }
 
@@ -96,7 +108,7 @@ header {
         padding: 1rem 2rem;
         border: #ec135b;
         border-radius: 15px;
-        background-color: #3a759f;
+        background-color: var(--primary-blue);
         color: white;
         font-size: 1.2rem;
         cursor: pointer;
@@ -105,7 +117,7 @@ header {
 
     button:hover {
         background-color: white;
-        color: #3a759f;
+        color: var(--primary-blue);
     }
 }
 

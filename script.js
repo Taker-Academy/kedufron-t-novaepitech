@@ -31,3 +31,10 @@ fetch(`${apiUrl}item/`)
 		});
 	})
 	.catch(error => console.error('Erreur:', error));
+
+// Footer
+
+var colors = ['#fffcaf', '#3a759f', 'pink', 'lightgreen'];
+var randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+document.querySelector('footer').style.backgroundColor = randomColor;

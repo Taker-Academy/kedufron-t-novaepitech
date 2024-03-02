@@ -131,12 +131,24 @@ header {
     font-weight: 400;
 }
 
-.products {
+/* .products {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 2rem;
     padding-top: 2rem;
+    border-top: solid 2px black;
+} */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+}
+
+.products.home-page {
     border-top: solid 2px black;
 }
 
@@ -144,24 +156,25 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 300px;
+    height: 700px;
+    width: 20vw;
     flex-basis: 25%;
     cursor: pointer;
 
     img {
-        height: 200px;
-        width: 200px;
+        height: 60%;
+        width: 100%;
+        object-fit: contain;
         border-radius: 15px;
-        object-fit: cover;
         transition: transform 0.3s ease;
     }
 
     img:hover {
-        transform: scale(1.05);
+        transform: scale(1.02);
     }
 
     button {
-        padding: 2rem;
+        padding: 1rem 5rem 1rem 5rem;
         background-color: pink;
         transition: background-color 0.3s ease, color 0.3s ease;
         border: 0;
@@ -182,8 +195,7 @@ header {
     }
 
     .products {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .product {

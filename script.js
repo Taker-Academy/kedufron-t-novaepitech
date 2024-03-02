@@ -53,7 +53,11 @@ fetch(`${apiUrl}item/`)
 			card.appendChild(price);
 
 			const addToCart = document.createElement('button');
-			addToCart.textContent = 'Ajouter au panier';
+			if (index <= 3) {
+				addToCart.textContent = 'Ajouter au panier';
+			} else {
+				addToCart.textContent = 'En rupture de stock';
+			}
 			card.appendChild(addToCart);
 		});
 	})

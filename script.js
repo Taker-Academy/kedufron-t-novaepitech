@@ -25,8 +25,10 @@ fetch(`${apiUrl}item/`)
 			const addToCart = document.createElement('button');
 			if (index <= 3)
 				addToCart.textContent = 'Ajouter au panier';
-			else
+			else {
 				addToCart.textContent = 'En rupture de stock';
+				addToCart.style.opacity = 0.5;
+			}
 			card.appendChild(addToCart);
 			var colors = ['lightyellow', 'pink', 'lightgreen'];
 			var randomColor = colors[Math.floor(Math.random() * colors.length)];

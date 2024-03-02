@@ -34,11 +34,9 @@ const apiUrl = 'https://api.kedufront.juniortaker.com/';
 fetch(`${apiUrl}item/`)
 	.then(response => response.json())
 	.then(items => {
-		// Slice the array from index 2 to 5
-		let selectedItems = items.slice(1, 5);
 		// Select all the cards
 		let cards = document.querySelectorAll('.product');
-		selectedItems.forEach((item, index) => {
+		items.forEach((item, index) => {
 			// Use the index to get the corresponding card
 			let card = cards[index];
 			// Création d'une balise img pour chaque item

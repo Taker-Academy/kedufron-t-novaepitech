@@ -152,6 +152,10 @@ header {
     border-top: solid 2px black;
 }
 
+.product-wrapper {
+    color: black;
+}
+
 .product {
     display: flex;
     flex-direction: column;

@@ -273,6 +273,15 @@ header {
 
     .hero {
         margin-top: 30vh;
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        button {
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+        }
     }
 
     .products {

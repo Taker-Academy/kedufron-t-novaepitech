@@ -1,6 +1,6 @@
 @font-face {
     font-family: Feijoada;
-    src: url(fonts/Feijoada.ttf);
+    src: url(../fonts/Feijoada.ttf);
 }
 
 :root {
@@ -9,7 +9,6 @@
 }
 
 body {
-    /* font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; */
     font-family: Feijoada;
     font-size: 1.2rem;
     margin: 0;

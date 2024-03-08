@@ -8,10 +8,11 @@ fetch(`${apiUrl}item/${productId}`)
 	.then(data => {
 		const item = data.item; // Access the item property of the response
 		
+		let image_container = document.querySelector('.product-image-container');
 		// Create and populate the img element
 		const img = document.createElement('img');
 		img.src = `${apiUrl}item/picture/${item._id}`; // Access the id from the item object
-		document.body.appendChild(img);
+		image_container.appendChild(img);
 
 		// Create and populate the h1 element
 		const name = document.createElement('h1');

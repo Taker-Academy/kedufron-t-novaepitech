@@ -1,13 +1,81 @@
+@font-face {
+    font-family: Feijoada;
+    src: url(../fonts/Feijoada.ttf);
+}
+
+:root {
+    --primary-blue: #3a759f;
+    --secondary-color: #ec135b;
+}
+
+body {
+    font-family: Feijoada;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
 .product-page-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr
 }
 
 .product-image-container {
     width: 100%;
+    height: 90vh;
 
     img {
+        height: 100%;
         width: 100%;
-        /* object-fit: contain; */
+        object-fit: contain;
+    }
+}
+
+.product-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+        padding: 1rem 0 1rem 0;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        border: 0;
+        border-radius: 15px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        width: 60%;
+    }
+
+    .lightyellow {
+        background-color: #fffcaf;
+    }
+
+    .pink {
+        background-color: pink;
+    }
+
+    .lightgreen {
+        background-color: #a2d4a2;
+    }
+
+    .lightyellow:hover,
+    .pink:hover,
+    .lightblue:hover,
+    .lightgreen:hover {
+        background-color: black;
+        color: white;
+    }
+}
+
+.add-to-cart-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 400px;
+
+    .counter-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100px;
     }
 }

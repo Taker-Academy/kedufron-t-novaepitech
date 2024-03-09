@@ -109,9 +109,16 @@ body {
 
 .description-container {
     width: 60%;
-    margin: 2rem 0 2rem 0;
+    margin: 4rem 0 2rem 0;
+
+    h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
 
     p {
         width: 100%;
+        text-align: center;
+        font-size: 1.5rem;
     }
 }

@@ -99,7 +99,7 @@ fetch(`${apiUrl}item/${productId}`)
 		description_container.classList.add('description-container');
 		details_container.appendChild(description_container);
 
-		const descriptionTitle = document.createElement('h2');
+		const descriptionTitle = document.createElement('h1');
 		descriptionTitle.textContent = 'Description';
 		description_container.appendChild(descriptionTitle);
 

@@ -8,7 +8,7 @@ fetch(`${apiUrl}item/${productId}`)
 	.then(response => response.json())
 	.then(data => {
 		const item = data.item;
-		
+
 		let image_container = document.querySelector('.product-image-container');
 		const img = document.createElement('img');
 		img.src = `${apiUrl}item/picture/${item._id}`;
@@ -61,8 +61,29 @@ fetch(`${apiUrl}item/${productId}`)
 		add_to_cart_container.appendChild(addToCart);
 
 		addToCart.addEventListener('click', () => {
-			localStorage.setItem(`product_${item._id}_count`, count);
-			console.log(`Product ${item._id} count: ${count}`);
+			// Create a product object
+			const product = {
+				id: item._id,
+				name: item.name,
+				price: item.price,
+				imageUrl: `${apiUrl}item/picture/${item._id}`,
+				quantity: count
+			};
+
+			let products = JSON.parse(localStorage.getItem('products')) || [];
+
+			// Check if the product is already in the cart
+			const existingProduct = products.find(p => p.id === product.id);
+
+			if (existingProduct) {
+				// If the product is already in the cart, update the quantity
+				existingProduct.quantity += product.quantity;
+			} else {
+				// If the product is not in the cart, add it
+				products.push(product);
+			}
+
+			localStorage.setItem('products', JSON.stringify(products));
 		});
 
 		var randomColor = buttonColors[Math.floor(Math.random() * buttonColors.length)];
@@ -73,5 +94,17 @@ fetch(`${apiUrl}item/${productId}`)
 		previousColor = randomColor;
 
 		addToCart.classList.add(randomColor);
+
+		const description_container = document.createElement('div');
+		description_container.classList.add('description-container');
+		details_container.appendChild(description_container);
+
+		const descriptionTitle = document.createElement('h2');
+		descriptionTitle.textContent = 'Description';
+		description_container.appendChild(descriptionTitle);
+
+		const description = document.createElement('p');
+		description.textContent = item.description;
+		description_container.appendChild(description);
 	})
 	.catch(error => console.error('Erreur:', error));

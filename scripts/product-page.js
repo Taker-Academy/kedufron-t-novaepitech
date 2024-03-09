@@ -19,7 +19,7 @@ fetch(`${apiUrl}item/${productId}`)
 		name.textContent = item.name;
 		details_container.appendChild(name);
 
-		const price = document.createElement('p');
+		const price = document.createElement('h2');
 		price.textContent = item.price + ' €';
 		details_container.appendChild(price);
 

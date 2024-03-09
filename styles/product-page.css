@@ -50,6 +50,11 @@ body {
         width: 60%;
     }
 
+    h1 {
+        font-size: 5rem;
+        margin: 0;
+    }
+
     .lightyellow {
         background-color: #fffcaf;
     }

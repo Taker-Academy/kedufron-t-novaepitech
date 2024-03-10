@@ -34,6 +34,34 @@ fetch(`${apiUrl}item/`)
 			}
 			card.appendChild(addToCart);
 
+			addToCart.addEventListener('click', () => {
+				// Create a product object
+				const product = {
+					id: item._id,
+					name: item.name,
+					price: item.price,
+					imageUrl: `${apiUrl}item/picture/${item._id}`,
+					quantity: 1
+				};
+
+				let products = JSON.parse(localStorage.getItem('products')) || [];
+
+				// Check if the product is already in the cart
+				const existingProduct = products.find(p => p.id === product.id);
+
+				if (item.name != 'Capibarou' && item.name != 'Dromaderou') {
+					if (existingProduct) {
+						// If the product is already in the cart, update the quantity
+						existingProduct.quantity += product.quantity;
+					} else {
+						// If the product is not in the cart, add it
+						products.push(product);
+					}
+				}
+
+				localStorage.setItem('products', JSON.stringify(products));
+			});
+
 			var randomColor = buttonColors[Math.floor(Math.random() * buttonColors.length)];
 
 			while (randomColor === previousColor)

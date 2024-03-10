@@ -57,7 +57,12 @@ fetch(`${apiUrl}item/${productId}`)
 		counterContainer.classList.add('counter-container');
 
 		const addToCart = document.createElement('button');
-		addToCart.textContent = 'Ajouter au panier';
+		if (item.name != 'Capibarou' && item.name != 'Dromaderou')
+				addToCart.textContent = 'Ajouter au panier';
+			else {
+				addToCart.textContent = 'En rupture de stock';
+				addToCart.style.opacity = 0.5;
+			}
 		add_to_cart_container.appendChild(addToCart);
 
 		addToCart.addEventListener('click', () => {

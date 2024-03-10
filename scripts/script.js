@@ -24,7 +24,7 @@ fetch(`${apiUrl}item/`)
 			card.appendChild(price);
 
 			const addToCart = document.createElement('button');
-			if (index <= 3)
+			if (item.name != 'Capibarou' && item.name != 'Dromaderou')
 				addToCart.textContent = 'Ajouter au panier';
 			else {
 				addToCart.textContent = 'En rupture de stock';

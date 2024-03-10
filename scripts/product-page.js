@@ -56,8 +56,6 @@ fetch(`${apiUrl}item/${productId}`)
 		add_to_cart_container.appendChild(counterContainer);
 		counterContainer.classList.add('counter-container');
 
-		// ...
-
 		const addToCart = document.createElement('button');
 		if (item.name != 'Capibarou' && item.name != 'Dromaderou') {
 			addToCart.textContent = 'Ajouter au panier';
@@ -74,14 +72,14 @@ fetch(`${apiUrl}item/${productId}`)
 
 				let products = JSON.parse(localStorage.getItem('products')) || [];
 
-				// Check if the product is already in the cart
+				// Check if product is already in cart
 				const existingProduct = products.find(p => p.id === product.id);
 
 				if (existingProduct) {
-					// If the product is already in the cart, update the quantity
+					// If product is already in cart, update quantity
 					existingProduct.quantity += product.quantity;
 				} else {
-					// If the product is not in the cart, add it
+					// If product is not in cart, add it
 					products.push(product);
 				}
 
@@ -94,8 +92,6 @@ fetch(`${apiUrl}item/${productId}`)
 		}
 
 		add_to_cart_container.appendChild(addToCart);
-
-		// ...
 
 		var randomColor = buttonColors[Math.floor(Math.random() * buttonColors.length)];
 

@@ -5,6 +5,7 @@ let products = JSON.parse(localStorage.getItem('products')) || [];
 products.forEach((product, index) => {
     // Create a div for the product
     const div = document.createElement('div');
+    div.classList.add('cart-product');
 
     // Create elements for the product details
     const img = document.createElement('img');
@@ -16,7 +17,7 @@ products.forEach((product, index) => {
     img.src = product.imageUrl;
     name.textContent = product.name;
     price.textContent = product.price + ' €';
-    quantity.textContent = 'Quantity: ' + product.quantity;
+    quantity.textContent = 'Quantité: ' + product.quantity;
 
     // Create buttons for modifying quantity
     const addButton = document.createElement('button');
@@ -31,14 +32,14 @@ products.forEach((product, index) => {
     // Add event listeners to buttons
     addButton.addEventListener('click', () => {
         product.quantity++;
-        quantity.textContent = 'Quantity: ' + product.quantity;
+        quantity.textContent = 'Quantité: ' + product.quantity;
         localStorage.setItem('products', JSON.stringify(products));
     });
 
     removeButton.addEventListener('click', () => {
         if (product.quantity > 1) {
             product.quantity--;
-            quantity.textContent = 'Quantity: ' + product.quantity;
+            quantity.textContent = 'Quantité: ' + product.quantity;
         } else {
             div.remove();
             products.splice(index, 1);

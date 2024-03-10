@@ -7,21 +7,23 @@ var previousColor = null;
 fetch(`${apiUrl}item/`)
 	.then(response => response.json())
 	.then(items => {
+		let cards_details = document.querySelectorAll('.product-details');
 		let cards = document.querySelectorAll('.product');
 		items.forEach((item, index) => {
+			let card_details = cards_details[index];
 			let card = cards[index];
 
 			const img = document.createElement('img');
 			img.src = `${apiUrl}item/picture/${item.image}`;
-			card.appendChild(img);
+			card_details.appendChild(img);
 
 			const name = document.createElement('h1');
 			name.textContent = item.name;
-			card.appendChild(name);
+			card_details.appendChild(name);
 
 			const price = document.createElement('h2');
 			price.textContent = item.price + ' €';
-			card.appendChild(price);
+			card_details.appendChild(price);
 
 			const addToCart = document.createElement('button');
 			if (item.name != 'Capibarou' && item.name != 'Dromaderou')

@@ -155,22 +155,6 @@ header {
     flex-basis: 25%;
     cursor: pointer;
 
-    img {
-        height: 75%;
-        width: 100%;
-        object-fit: contain;
-        border-radius: 15px;
-        transition: transform 0.3s ease;
-    }
-
-    &:hover img {
-        transform: scale(1.02);
-    }
-
-    h1, h2 {
-        margin: 0 0 1rem 0;
-    }
-
     button {
         padding: 1rem 0 1rem 0;
         transition: background-color 0.3s ease, color 0.3s ease;
@@ -199,6 +183,26 @@ header {
     .lightgreen:hover {
         background-color: black;
         color: white;
+    }
+}
+
+.product-details {
+    height: 70%;
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        border-radius: 15px;
+        transition: transform 0.3s ease;
+    }
+
+    &:hover img {
+        transform: scale(1.02);
+    }
+
+    h1, h2 {
+        margin: 0 0 1rem 0;
     }
 }
 

@@ -56,40 +56,46 @@ fetch(`${apiUrl}item/${productId}`)
 		add_to_cart_container.appendChild(counterContainer);
 		counterContainer.classList.add('counter-container');
 
+		// ...
+
 		const addToCart = document.createElement('button');
-		if (item.name != 'Capibarou' && item.name != 'Dromaderou')
-				addToCart.textContent = 'Ajouter au panier';
-			else {
-				addToCart.textContent = 'En rupture de stock';
-				addToCart.style.opacity = 0.5;
-			}
+		if (item.name != 'Capibarou' && item.name != 'Dromaderou') {
+			addToCart.textContent = 'Ajouter au panier';
+
+			addToCart.addEventListener('click', () => {
+				// Create a product object
+				const product = {
+					id: item._id,
+					name: item.name,
+					price: item.price,
+					imageUrl: `${apiUrl}item/picture/${item._id}`,
+					quantity: count
+				};
+
+				let products = JSON.parse(localStorage.getItem('products')) || [];
+
+				// Check if the product is already in the cart
+				const existingProduct = products.find(p => p.id === product.id);
+
+				if (existingProduct) {
+					// If the product is already in the cart, update the quantity
+					existingProduct.quantity += product.quantity;
+				} else {
+					// If the product is not in the cart, add it
+					products.push(product);
+				}
+
+				localStorage.setItem('products', JSON.stringify(products));
+			});
+		} else {
+			addToCart.textContent = 'En rupture de stock';
+			addToCart.style.opacity = 0.5;
+			addToCart.disabled = true;
+		}
+
 		add_to_cart_container.appendChild(addToCart);
 
-		addToCart.addEventListener('click', () => {
-			// Create a product object
-			const product = {
-				id: item._id,
-				name: item.name,
-				price: item.price,
-				imageUrl: `${apiUrl}item/picture/${item._id}`,
-				quantity: count
-			};
-
-			let products = JSON.parse(localStorage.getItem('products')) || [];
-
-			// Check if the product is already in the cart
-			const existingProduct = products.find(p => p.id === product.id);
-
-			if (existingProduct) {
-				// If the product is already in the cart, update the quantity
-				existingProduct.quantity += product.quantity;
-			} else {
-				// If the product is not in the cart, add it
-				products.push(product);
-			}
-
-			localStorage.setItem('products', JSON.stringify(products));
-		});
+		// ...
 
 		var randomColor = buttonColors[Math.floor(Math.random() * buttonColors.length)];
 

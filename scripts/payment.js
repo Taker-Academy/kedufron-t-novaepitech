@@ -1,4 +1,4 @@
-document.getElementById('contact-form').addEventListener('submit', function(event) {
+document.getElementById('payment-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
     // Get form data
@@ -16,15 +16,22 @@ document.getElementById('contact-form').addEventListener('submit', function(even
         email: email,
         name: fname + ' ' + lname,
         address: address + ', ' + city + ', ' + state + ', ' + country + ', ' + zip,
-        cart: products
+        cart: products.map(product => ({ id: product._id, amount: product.quantity }))
     };
 
-    console.log(order);
-});
-
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    // Redirect to the payment page
-    window.location.href = "payment.html";
+    // Send the order object to your API
+    fetch('https://api.kedufront.juniortaker.com/order', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(order),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 });
